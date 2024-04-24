@@ -96,6 +96,7 @@ $ git clone https://github.com/chatchat-space/Langchain-Chatchat.git
 $ cd Langchain-Chatchat
 
 # 安装tpu版本的FastChat
+git submodule update --init --recursive
 cd FastChat-TPU
 pip3 install --upgrade pip  # enable PEP 660 support
 pip3 install -e ".[model_worker]"
