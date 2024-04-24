@@ -97,18 +97,18 @@ $ pip install -r requirements_webui.txt
 请注意，LangChain-Chatchat `0.2.x` 系列是针对 Langchain `0.0.x` 系列版本的，如果你使用的是 Langchain `0.1.x`
 系列版本，需要降级您的`Langchain`版本。
 
+安装 SAIL，参考[Sail_Install_Guide](./docs/Sail_Install_Guide.md)
+
 ### 2， 模型下载
 以本项目中默认使用的 LLM 模型 [THUDM/ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b) 与 Embedding
 模型 [BAAI/bge-large-zh](https://huggingface.co/BAAI/bge-large-zh) 为例：
-
-
-，然后运行
 
 ```Shell
 $ pip install dfss -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade
 $ python -m dfss --url=open@sophgo.com:ezoo/chatdoc/bmodel.tar.gz
 $ tar -zxvf bmodel.tar.gz
 
+# embedding model 暂时使用cpu，待移植
 $ git lfs install
 $ git clone https://huggingface.co/BAAI/bge-large-zh
 ```
