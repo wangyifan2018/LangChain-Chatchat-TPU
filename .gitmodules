@@ -2,7 +2,3 @@
 	path = knowledge_base/samples/content/wiki
 	url = https://github.com/chatchat-space/Langchain-Chatchat.wiki.git
 
-[submodule "FastChat-TPU"]
-	path = FastChat-TPU
-	url = https://github.com/wangyifan2018/FastChat-TPU.git
-
