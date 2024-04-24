@@ -1,25 +1,21 @@
+# Langchain-Chatchat-TPU <!-- omit in toc -->
 ![](img/logo-long-chatchat-trans-v2.png)
 
+适配 Sophon BM1684X，集成 FastChat API 框架
 
-📃 **LangChain-Chatchat** (原 Langchain-ChatGLM)
+原始仓库为[Langchain-Chatchat](https://github.com/chatchat-space/Langchain-Chatchat/tree/master)
 
-基于 ChatGLM 等大语言模型与 Langchain 等应用框架实现，开源、可离线部署的检索增强生成(RAG)大模型知识库项目。
+## 目录 <!-- omit in toc -->
 
-⚠️`0.2.10`将会是`0.2.x`系列的最后一个版本，`0.2.x`系列版本将会停止更新和技术支持，全力研发具有更强应用性的 `Langchain-Chatchat 0.3.x`。
-
----
-
-## 目录
-
-* [介绍](README.md#介绍)
-* [解决的痛点](README.md#解决的痛点)
-* [快速上手](README.md#快速上手)
-    * [1. 环境配置](README.md#1-环境配置)
-    * [2. 模型下载](README.md#2-模型下载)
-    * [3. 初始化知识库和配置文件](README.md#3-初始化知识库和配置文件)
-    * [4. 一键启动](README.md#4-一键启动)
-    * [5. 启动界面示例](README.md#5-启动界面示例)
-* [联系我们](README.md#联系我们)
+- [介绍](#介绍)
+- [解决的痛点](#解决的痛点)
+- [快速上手](#快速上手)
+  - [1. 环境配置](#1-环境配置)
+  - [2， 模型下载](#2-模型下载)
+  - [3. 初始化知识库和配置文件](#3-初始化知识库和配置文件)
+  - [4. 一键启动](#4-一键启动)
+  - [5. 启动界面示例](#5-启动界面示例)
+  - [注意](#注意)
 
 ## 介绍
 
@@ -48,18 +44,6 @@ OpenAI GPT API 的调用，并将在后续持续扩充对各类模型及模型 A
 
 ![实现原理图2](img/langchain+chatglm2.png)
 
-🚩 本项目未涉及微调、训练过程，但可利用微调或训练对本项目效果进行优化。
-
-🌐 [AutoDL 镜像](https://www.codewithgpu.com/i/chatchat-space/Langchain-Chatchat/Langchain-Chatchat) 中 `v13`
-版本所使用代码已更新至本项目 `v0.2.9` 版本。
-
-🐳 [Docker 镜像](registry.cn-beijing.aliyuncs.com/chatchat/chatchat:0.2.6) 已经更新到 ```0.2.7``` 版本。
-
-🌲 一行命令运行 Docker ：
-
-```shell
-docker run -d --gpus all -p 80:8501 registry.cn-beijing.aliyuncs.com/chatchat/chatchat:0.2.7
-```
 
 🧩 本项目有一个非常完整的[Wiki](https://github.com/chatchat-space/Langchain-Chatchat/wiki/) ， README只是一个简单的介绍，_
 _仅仅是入门教程，能够基础运行__。
@@ -80,7 +64,7 @@ _仅仅是入门教程，能够基础运行__。
 
 + 首先，确保你的机器安装了 Python 3.8 - 3.11 (我们强烈推荐使用 Python3.11)。
 
-```
+```bash
 $ python --version
 Python 3.11.7
 ```
@@ -96,11 +80,11 @@ $ git clone https://github.com/chatchat-space/Langchain-Chatchat.git
 $ cd Langchain-Chatchat
 
 # 安装tpu版本的FastChat
-git submodule update --init --recursive
-cd FastChat-TPU
-pip3 install --upgrade pip  # enable PEP 660 support
-pip3 install -e ".[model_worker]"
-cd ..
+$ git submodule update --init --recursive
+$ cd FastChat-TPU
+$ pip install --upgrade pip  # enable PEP 660 support
+$ pip install -e ".[model_worker]"
+$ cd ..
 
 # 安装全部依赖
 $ pip install -r requirements.txt
@@ -121,7 +105,12 @@ $ pip install -r requirements_webui.txt
 ，然后运行
 
 ```Shell
-#脚本待更新
+$ pip install dfss -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade
+$ python -m dfss --url=open@sophgo.com:ezoo/chatdoc/bmodel.tar.gz
+$ tar -zxvf bmodel.tar.gz
+
+$ git lfs install
+$ git clone https://huggingface.co/BAAI/bge-large-zh
 ```
 
 ### 3. 初始化知识库和配置文件
@@ -166,34 +155,3 @@ $ python startup.py -a
 
 
 ---
-
-## 项目里程碑
-
-+ `2023年4月`: `Langchain-ChatGLM 0.1.0` 发布，支持基于 ChatGLM-6B 模型的本地知识库问答。
-+ `2023年8月`: `Langchain-ChatGLM` 改名为 `Langchain-Chatchat`，`0.2.0` 发布，使用 `fastchat` 作为模型加载方案，支持更多的模型和数据库。
-+ `2023年10月`: `Langchain-Chatchat 0.2.5` 发布，推出 Agent 内容，开源项目在`Founder Park & Zhipu AI & Zilliz`
-  举办的黑客马拉松获得三等奖。
-+ `2023年12月`: `Langchain-Chatchat` 开源项目获得超过 **20K** stars.
-+ `2024年1月`: `LangChain 0.1.x` 推出，`Langchain-Chatchat 0.2.x` 发布稳定版本`0.2.10`
-  后将停止更新和技术支持，全力研发具有更强应用性的 `Langchain-Chatchat 0.3.x`。
-
-+ 🔥 让我们一起期待未来 Chatchat 的故事 ···
-
----
-
-## 联系我们
-
-### Telegram
-
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white "langchain-chatglm")](https://t.me/+RjliQ3jnJ1YyN2E9)
-
-### 项目交流群
-<img src="img/qr_code_87.jpg" alt="二维码" width="300" />
-
-🎉 Langchain-Chatchat 项目微信交流群，如果你也对本项目感兴趣，欢迎加入群聊参与讨论交流。
-
-### 公众号
-
-<img src="img/official_wechat_mp_account.png" alt="二维码" width="300" />
-
-🎉 Langchain-Chatchat 项目官方公众号，欢迎扫码关注。

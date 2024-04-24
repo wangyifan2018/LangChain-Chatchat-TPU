@@ -25,12 +25,15 @@ EMBEDDING_MODEL_OUTPUT_PATH = "output"
 # 列表中第一个模型将作为 API 和 WEBUI 的默认模型。
 # 在这里，我们使用目前主流的两个离线模型，其中，chatglm3-6b 为默认加载模型。
 # 如果你的显存不足，可使用 Qwen-1_8B-Chat, 该模型 FP16 仅需 3.8G显存。
+# 同时加载两个本地模型可能会显存不够
 
-LLM_MODELS = ["chatglm3-6b", "zhipu-api", "openai-api"]
+LLM_MODELS = ["chatglm3-6b"] #  ["Qwen-7B-Chat"]
 Agent_MODEL = None
 
-# LLM 模型运行设备。设为"auto"会自动检测(会有警告)，设定为 "tpu" 。
+# LLM 模型运行设备，设定为 "tpu" 。
 LLM_DEVICE = "tpu"
+
+LLM_DEVICE_ID = 0
 
 HISTORY_LEN = 3
 
@@ -164,8 +167,7 @@ MODEL_PATH = {
 
     "llm_model": {
         "chatglm3-6b": "./bmodel/chatglm3-6b",
-
-        "Qwen-7B-Chat": "Qwen/Qwen-7B-Chat",
+        "Qwen-7B-Chat": "./bmodel/qwen-7b-chat",
     },
 
     "reranker": {

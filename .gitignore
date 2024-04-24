@@ -173,7 +173,14 @@ cython_debug/
 .pytest_cache
 .DS_Store
 
-
+# Model
 chatglm3-6b/
 bmodel/
 m3e-base/
+
+# File
+*.zip
+*.tar.gz
+*.tar
+*.tar.xz
+
