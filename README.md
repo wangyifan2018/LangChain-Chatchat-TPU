@@ -120,7 +120,7 @@ bmodel
 │   ├── tokenization_qwen.py
 │   └── tokenizer_config.json
 └── text2vec-bge-large-chinese
-    ├── bge_large_512_fp16_4b.bmodel
+    ├── bge_large_512_fp16_1b.bmodel
     ├── special_tokens_map.json
     ├── tokenizer_config.json
     └── vocab.txt

@@ -13,7 +13,7 @@ from tqdm import tqdm
 from configs import logger
 
 class EngineOV:
-    def __init__(self, model_path="./bmodel/text2vec-bge-large-chinese/bge_large_512_fp16_4b.bmodel", device_id=0) :
+    def __init__(self, model_path="./bmodel/text2vec-bge-large-chinese/bge_large_512_fp16_1b.bmodel", device_id=0) :
         self.net = sail.Engine(model_path, device_id, sail.IOMode.SYSIO)
         logger.info("load {} success, dev_id {}".format(model_path, device_id))
         self.graph_name = self.net.get_graph_names()[0]

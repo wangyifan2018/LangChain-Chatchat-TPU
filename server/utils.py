@@ -523,19 +523,21 @@ def detect_device() -> Literal["cuda", "mps", "cpu"]:
 
 
 def llm_device(device: str = None) -> Literal["tpu"]:
-    device = device or LLM_DEVICE
-    if device not in ["tpu"]:
-        logger.error("error llm device")
+    # device = device or LLM_DEVICE
+    # if device not in ["tpu"]:
+    #     logger.error("error llm device")
         # device = detect_device()
+    logger.info("llm device just support tpu")
     return "tpu"
 
 
-def embedding_device(device: str = None) -> Literal["tpu", "cpu"]:
-    device = device or EMBEDDING_DEVICE
-    if device not in ["tpu", "cpu"]:
-        logger.error("error embedding device")
+def embedding_device(device: str = None) -> Literal["tpu"]:
+    # device = device or EMBEDDING_DEVICE
+    # if device not in ["tpu", "cpu"]:
+    #     logger.error("error embedding device")
         # device = detect_device()
-    return device
+    logger.info("embedding device just support tpu")
+    return "tpu"
 
 
 def run_in_thread_pool(

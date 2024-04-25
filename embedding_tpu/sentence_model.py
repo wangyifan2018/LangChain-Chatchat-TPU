@@ -58,7 +58,7 @@ class SentenceModel:
         Note that: in doc, it says <last_hidden_state> is better semantic summery than <pooler_output>.
         thus, we use <last_hidden_state>.
         """
-        bmodel_path = "./bmodel/" + model_name_or_path + "/bge_large_512_fp16_4b.bmodel"
+        bmodel_path = "./bmodel/" + model_name_or_path + "/bge_large_512_fp16_1b.bmodel"
         token_path = "./bmodel/" + model_name_or_path
         dev_id = dev_id
 
