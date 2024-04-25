@@ -5,11 +5,13 @@ import os
 # 如果模型目录名称和 MODEL_PATH 中的 key 或 value 相同，程序会自动检测加载，无需修改 MODEL_PATH 中的路径。
 MODEL_ROOT_PATH = ""
 
-# 选用的 Embedding 名称
-EMBEDDING_MODEL = "bge-large-zh"
+# 选用的 Embedding 名称，目前仅适配好 text2vec-bge-large-chinese
+EMBEDDING_MODEL = "text2vec-bge-large-chinese"
 
-# Embedding 模型运行设备。设为 "auto" 会自动检测(会有警告)，也可手动设定为 "cuda","mps","cpu","xpu" 其中之一。
-EMBEDDING_DEVICE = "cpu"
+# Embedding 模型运行设备。设为 "auto" 会自动检测(会有警告)，也可手动设定为 "tpu",,"cpu" 其中之一。
+EMBEDDING_DEVICE = "tpu"
+
+EMBEDDING_ID = 0
 
 # 选用的reranker模型
 RERANKER_MODEL = "bge-reranker-large"

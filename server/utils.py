@@ -511,29 +511,31 @@ def set_httpx_config(
 
 
 def detect_device() -> Literal["cuda", "mps", "cpu"]:
-    # try:
-    #     import torch
-    #     if torch.cuda.is_available():
-    #         return "cuda"
-    #     if torch.backends.mps.is_available():
-    #         return "mps"
-    # except:
-    #     pass
+    try:
+        import torch
+        if torch.cuda.is_available():
+            return "cuda"
+        if torch.backends.mps.is_available():
+            return "mps"
+    except:
+        pass
     return "cpu"
 
 
 def llm_device(device: str = None) -> Literal["tpu"]:
     device = device or LLM_DEVICE
     if device not in ["tpu"]:
-        device = detect_device()
+        logger.error("error llm device")
+        # device = detect_device()
     return "tpu"
 
 
-def embedding_device(device: str = None) -> Literal["tpu", "mps", "cpu"]:
+def embedding_device(device: str = None) -> Literal["tpu", "cpu"]:
     device = device or EMBEDDING_DEVICE
-    if device not in ["tpu", "mps", "cpu"]:
-        device = detect_device()
-    return "cpu"
+    if device not in ["tpu", "cpu"]:
+        logger.error("error embedding device")
+        # device = detect_device()
+    return device
 
 
 def run_in_thread_pool(
@@ -665,7 +667,6 @@ def load_local_embeddings(model: str = None, device: str = embedding_device()):
     '''
     from server.knowledge_base.kb_cache.base import embeddings_pool
     from configs import EMBEDDING_MODEL
-
     model = model or EMBEDDING_MODEL
     return embeddings_pool.load_embeddings(model=model, device=device)
 

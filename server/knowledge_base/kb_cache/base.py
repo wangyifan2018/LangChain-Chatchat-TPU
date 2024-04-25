@@ -1,13 +1,13 @@
 from langchain.embeddings.base import Embeddings
 from langchain.vectorstores.faiss import FAISS
 import threading
-from configs import (EMBEDDING_MODEL, CHUNK_SIZE,
+from configs import (EMBEDDING_MODEL, CHUNK_SIZE, EMBEDDING_ID,
                      logger, log_verbose)
 from server.utils import embedding_device, get_model_path, list_online_embed_models
 from contextlib import contextmanager
 from collections import OrderedDict
 from typing import List, Any, Union, Tuple
-
+from embedding_tpu import Word2VecEmbedding
 
 class ThreadSafeObject:
     def __init__(self, key: Union[str, Tuple], obj: Any = None, pool: "CachePool" = None):
@@ -127,7 +127,9 @@ class EmbeddingsPool(CachePool):
             self.set(key, item)
             with item.acquire(msg="初始化"):
                 self.atomic.release()
-                if model == "text-embedding-ada-002":  # openai text-embedding-ada-002
+                if device == "tpu":
+                    embeddings = Word2VecEmbedding(EMBEDDING_MODEL, EMBEDDING_ID)
+                elif model == "text-embedding-ada-002":  # openai text-embedding-ada-002
                     from langchain.embeddings.openai import OpenAIEmbeddings
                     embeddings = OpenAIEmbeddings(model=model,
                                                   openai_api_key=get_model_path(model),

@@ -14,7 +14,7 @@ class FaissKBService(KBService):
     vs_path: str
     kb_path: str
     vector_name: str = None
- 
+
     def vs_type(self) -> str:
         return SupportedVSType.FAISS
 

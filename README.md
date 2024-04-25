@@ -66,7 +66,7 @@ _仅仅是入门教程，能够基础运行__。
 
 ```bash
 $ python --version
-Python 3.11.7
+Python 3.10.14
 ```
 
 接着，创建一个虚拟环境，并在虚拟环境内安装项目的依赖
@@ -101,16 +101,31 @@ $ pip install -r requirements_webui.txt
 
 ### 2， 模型下载
 以本项目中默认使用的 LLM 模型 [THUDM/ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b) 与 Embedding
-模型 [BAAI/bge-large-zh](https://huggingface.co/BAAI/bge-large-zh) 为例：
+模型 [shibing624/text2vec-bge-large-chinese](https://huggingface.co/shibing624/text2vec-bge-large-chinese) 为例：
 
 ```Shell
 $ pip install dfss -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade
 $ python -m dfss --url=open@sophgo.com:ezoo/chatdoc/bmodel.tar.gz
 $ tar -zxvf bmodel.tar.gz
-
-# embedding model 暂时使用cpu，待移植
-$ git lfs install
-$ git clone https://huggingface.co/BAAI/bge-large-zh
+```
+下载的文件包括
+```
+bmodel
+├── chatglm3-6b
+│   ├── chatglm3-6b_int4_1dev_2k.bmodel
+│   ├── tokenization_chatglm.py
+│   ├── tokenizer_config.json
+│   └── tokenizer.model
+├── qwen-7b-chat
+│   ├── qwen-7b_int4_1dev_2k.bmodel
+│   ├── qwen.tiktoken
+│   ├── tokenization_qwen.py
+│   └── tokenizer_config.json
+└── text2vec-bge-large-chinese
+    ├── bge_large_512_fp16_4b.bmodel
+    ├── special_tokens_map.json
+    ├── tokenizer_config.json
+    └── vocab.txt
 ```
 
 ### 3. 初始化知识库和配置文件
