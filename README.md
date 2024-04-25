@@ -1,12 +1,11 @@
 # Langchain-Chatchat-TPU <!-- omit in toc -->
 ![](img/logo-long-chatchat-trans-v2.png)
 
-适配 Sophon BM1684X，集成 FastChat API 框架
+适配 Sophon BM1684X，集成 [FastChat](https://github.com/lm-sys/FastChat/tree/main) 框架
 
 原始仓库为[Langchain-Chatchat](https://github.com/chatchat-space/Langchain-Chatchat/tree/master)
 
 ## 目录 <!-- omit in toc -->
-
 - [介绍](#介绍)
 - [解决的痛点](#解决的痛点)
 - [快速上手](#快速上手)
@@ -15,7 +14,6 @@
   - [3. 初始化知识库和配置文件](#3-初始化知识库和配置文件)
   - [4. 一键启动](#4-一键启动)
   - [5. 启动界面示例](#5-启动界面示例)
-  - [注意](#注意)
 
 ## 介绍
 
@@ -74,10 +72,10 @@ Python 3.10.14
 ```shell
 
 # 拉取仓库
-$ git clone https://github.com/chatchat-space/Langchain-Chatchat.git
+$ git clone https://github.com/wangyifan2018/LangChain-Chatchat-TPU.git
 
 # 进入目录
-$ cd Langchain-Chatchat
+$ cd LangChain-Chatchat-TPU
 
 # 安装tpu版本的FastChat
 $ git submodule update --init --recursive
@@ -162,11 +160,6 @@ $ python startup.py -a
 - Web UI 知识库管理页面：
 
 ![](img/init_knowledge_base.jpg)
-
-### 注意
-
-以上方式只是为了快速上手，如果需要更多的功能和自定义启动方式
-，请参考[Wiki](https://github.com/chatchat-space/Langchain-Chatchat/wiki/)
 
 
 ---
