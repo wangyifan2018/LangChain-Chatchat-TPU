@@ -95,7 +95,7 @@ $ pip install -r requirements_webui.txt
 请注意，LangChain-Chatchat `0.2.x` 系列是针对 Langchain `0.0.x` 系列版本的，如果你使用的是 Langchain `0.1.x`
 系列版本，需要降级您的`Langchain`版本。
 
-安装 SAIL，参考[Sail_Install_Guide](./docs/Sail_Install_Guide.md)
+需要安装新版本 SAIL，参考[Sail_Install_Guide](./docs/Sail_Install_Guide.md)
 
 ### 2， 模型下载
 以本项目中默认使用的 LLM 模型 [THUDM/ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b) 与 Embedding
@@ -114,6 +114,11 @@ bmodel
 │   ├── tokenization_chatglm.py
 │   ├── tokenizer_config.json
 │   └── tokenizer.model
+├── codefuse-devops-model-7b-chat
+│   ├── codefuse-7b_int4_1dev_2k.bmodel
+│   ├── qwen.tiktoken
+│   ├── tokenization_qwen.py
+│   └── tokenizer_config.json
 ├── qwen-7b-chat
 │   ├── qwen-7b_int4_1dev_2k.bmodel
 │   ├── qwen.tiktoken
