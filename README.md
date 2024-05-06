@@ -147,6 +147,9 @@ $ python init_database.py --recreate-vs
 ```shell
 $ python startup.py -a
 ```
+- 不同环境下根据配置文件和终端日志查看
+- 启动的web界面默认在 http://{host-ip}:8501/
+- 启动的api文档默认在 http://{host-ip}:7861/docs
 
 ### 5. 启动界面示例
 
