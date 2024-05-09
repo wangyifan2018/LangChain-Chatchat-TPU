@@ -180,6 +180,7 @@ chatglm3-6b/
 bmodel/
 m3e-base/
 text2vec-bge-large-chinese/
+*.bmodel
 
 # File
 *.zip

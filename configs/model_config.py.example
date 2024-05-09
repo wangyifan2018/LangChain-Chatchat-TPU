@@ -8,7 +8,7 @@ MODEL_ROOT_PATH = ""
 # 选用的 Embedding 名称，目前仅适配好 text2vec-bge-large-chinese
 EMBEDDING_MODEL = "text2vec-bge-large-chinese"
 
-# Embedding 模型运行设备。设为 "auto" 会自动检测(会有警告)，也可手动设定为 "tpu",,"cpu" 其中之一。
+# Embedding 模型运行设备。设为 "tpu"。
 EMBEDDING_DEVICE = "tpu"
 
 EMBEDDING_ID = 0

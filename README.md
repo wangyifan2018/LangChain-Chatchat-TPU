@@ -98,10 +98,11 @@ $ pip install -r requirements_webui.txt
 需要安装新版本 SAIL，参考[Sail_Install_Guide](./docs/Sail_Install_Guide.md)
 
 ### 2， 模型下载
-以本项目中默认使用的 LLM 模型 [THUDM/ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b) 与 Embedding
-模型 [shibing624/text2vec-bge-large-chinese](https://huggingface.co/shibing624/text2vec-bge-large-chinese) 为例：
+本项目中默认使用的 LLM 模型 [THUDM/ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b) 与 Embedding
+模型 [shibing624/text2vec-bge-large-chinese](https://huggingface.co/shibing624/text2vec-bge-large-chinese)：
 
 ```Shell
+# 在工程主目录下
 $ pip install dfss -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade
 $ python -m dfss --url=open@sophgo.com:ezoo/chatdoc/bmodel.tar.gz
 $ tar -zxvf bmodel.tar.gz
