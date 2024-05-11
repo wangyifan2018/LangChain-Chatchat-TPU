@@ -5,12 +5,15 @@
 
 原始仓库为[Langchain-Chatchat](https://github.com/chatchat-space/Langchain-Chatchat/tree/master)
 
+> 注:
+> 本仓库中通过.gitmodules中的源码来安装适配TPU的 [FastChat-TPU](https://github.com/wangyifan2018/FastChat-TPU)，已删除requirements.txt中的公版fastchat
+
 ## 目录 <!-- omit in toc -->
 - [介绍](#介绍)
 - [解决的痛点](#解决的痛点)
 - [快速上手](#快速上手)
   - [1. 环境配置](#1-环境配置)
-  - [2， 模型下载](#2-模型下载)
+  - [2. 模型下载](#2-模型下载)
   - [3. 初始化知识库和配置文件](#3-初始化知识库和配置文件)
   - [4. 一键启动](#4-一键启动)
   - [5. 启动界面示例](#5-启动界面示例)
@@ -90,6 +93,7 @@ $ pip install -r requirements_api.txt
 $ pip install -r requirements_webui.txt
 
 # 默认依赖包括基本运行环境（FAISS向量库）。如果要使用 milvus/pg_vector 等向量库，请将 requirements.txt 中相应依赖取消注释再安装。
+# 如果需要在边缘设备启动服务，需要注释掉 requirements.txt 中的 vllm 依赖，且至少保留 2G 设备内存
 ```
 
 请注意，LangChain-Chatchat `0.2.x` 系列是针对 Langchain `0.0.x` 系列版本的，如果你使用的是 Langchain `0.1.x`
@@ -97,7 +101,7 @@ $ pip install -r requirements_webui.txt
 
 需要安装新版本 SAIL，参考[Sail_Install_Guide](./docs/Sail_Install_Guide.md)
 
-### 2， 模型下载
+### 2. 模型下载
 本项目中默认使用的 LLM 模型 [THUDM/ChatGLM3-6B](https://huggingface.co/THUDM/chatglm3-6b) 与 Embedding
 模型 [shibing624/text2vec-bge-large-chinese](https://huggingface.co/shibing624/text2vec-bge-large-chinese)：
 
