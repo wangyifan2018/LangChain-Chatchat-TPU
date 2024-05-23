@@ -73,10 +73,6 @@ Python 3.10.14
 接着，创建一个虚拟环境，并在虚拟环境内安装项目的依赖
 
 ```shell
-
-# 拉取仓库
-$ git clone https://github.com/wangyifan2018/LangChain-Chatchat-TPU.git
-
 # 进入目录
 $ cd LangChain-Chatchat-TPU
 
